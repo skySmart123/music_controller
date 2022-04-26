@@ -9,9 +9,9 @@ import { Link } from "react-router-dom";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
+import { withRouter } from './withRouter'
 
-
-export default class CreateRoomPage extends Component{
+class CreateRoomPage extends Component{
     defaultVotes = 2;
     constructor(props){
         super(props);
@@ -25,6 +25,7 @@ export default class CreateRoomPage extends Component{
         this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
         this.handleVotesChange = this.handleVotesChange.bind(this);
         this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this);
+        console.log('hhh')
     }
     // handle method 中 set state
 
@@ -48,12 +49,12 @@ export default class CreateRoomPage extends Component{
         })
     };
     fetch('/api/create-room', requestOptions)
-        .then(response => response.json())
-        .then(data => console.log(data))
+        .then((response) => response.json())
+        .then((data) => this.props.navigate("/room/" + data.code))
    }
     render() {
         return (
-          <Grid container spacing={1}>
+          <Grid container spacing={1} align ="center" >
             <Grid item xs={12} align="center">
               <Typography component="h4" variant="h4">
                 Create A Room
@@ -119,3 +120,4 @@ export default class CreateRoomPage extends Component{
         );
       }
 }
+export default withRouter(CreateRoomPage);
