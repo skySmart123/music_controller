@@ -30,6 +30,7 @@ import { withRouter } from './withRouter'
             
             )
             console.log(data.code)
+            console.log(",,,")
         });
     }
     clearRoomCode(){
