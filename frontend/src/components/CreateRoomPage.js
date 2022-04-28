@@ -25,7 +25,7 @@ class CreateRoomPage extends Component{
         this.handleGuestCanPauseChange = this.handleGuestCanPauseChange.bind(this);
         this.handleVotesChange = this.handleVotesChange.bind(this);
         this.handleRoomButtonPressed = this.handleRoomButtonPressed.bind(this);
-        console.log('hhh')
+        
     }
     // handle method 中 set state
 

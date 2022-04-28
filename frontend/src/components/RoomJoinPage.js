@@ -51,8 +51,7 @@ const handleRoomButtonPressed =() =>{
 }
 const handleKeyDown = (e ) =>{
     if(e.key === 'Enter'){
-        console.log(".....")
-        console.log("..")
+        handleRoomButtonPressed()
     }
 
 }
@@ -73,10 +72,13 @@ return (
           helperText={ roomState.error }
           variant="outlined"  
           onChange={handleTextFieldChange}
+          onKeyDown={(e) => {
+            handleKeyDown(e)
+          }}
         />
       </Grid>
       <Grid item xs={12}>
-        <Button variant="contained" color="primary" onClick={handleRoomButtonPressed} onKeyDown={handleKeyDown}>Join Room</Button>
+        <Button variant="contained" color="primary" onClick={handleRoomButtonPressed}>Join Room</Button>
       </Grid>
       <Grid item xs={12}>
         <Button variant="contained" color="secondary" to="/" component={Link}>Back</Button>
